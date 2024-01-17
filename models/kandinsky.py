@@ -2,7 +2,6 @@ import requests
 
 import json
 import time
-import base64
 from random import choice
 
 
@@ -61,23 +60,21 @@ def gen(prom, dirr="res"):
 
     image_base64 = images[0]
 
-    # -------Декодируем строку base64 в бинарные данные
-
-    # image_data = base64.b64decode(image_base64)
-
-    # -------Открываем файл для записи бинарных данных изображения
-
-    # with open(f"logo.jpg", "wb") as file:
-    #     file.write(image_data)
-
     return image_base64
 
 
 def logo(market):
-    form = choice(["квадрат", "круг", "капля", "треугольник", "волны", "шестеренка"])
+    form = choice(["квадрат", "круг", "капля", "треугольник", "волны"])
     zapros = f"prompt:Логотип компании на чистом белом фоне, {form}, {market}, минимализм, четкие линии, плоское изображение"
     return gen(zapros.replace("\n", " "), )
 
 
 def lite_image(prom):
     return gen(prom.replace("\n", " "), )
+
+
+# import base64
+#
+# image_data = base64.b64decode(logo("////"))
+# with open(f"logo.jpg", "wb") as file:
+#     file.write(image_data)

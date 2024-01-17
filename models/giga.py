@@ -2,7 +2,6 @@
 from langchain.schema import HumanMessage, SystemMessage
 from langchain.chat_models.gigachat import GigaChat
 
-
 chat = GigaChat(
     credentials="Y2U5YTliYzMtYjJjNy00YzNhLWJmN2YtOTZlMTNiNjFiNzliOmFmMDBkNDgyLWVjMTgtNGFlMC04Y2U5LTI3ZTYwNWUyOGNlNQ==",
     verify_ssl_certs=False)
@@ -22,4 +21,3 @@ def getmarket(input):
     messages.append(HumanMessage(content=input))
     res = chat(messages)
     return (res.content)
-
